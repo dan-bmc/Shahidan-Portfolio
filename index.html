@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shahidan | Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Shahidan<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="greeting">Hi, I'm</p>
+      <h1>Shahidan</h1>
+      <h2 class="typewriter" id="typewriter"></h2>
+      <p class="hero-desc">I build custom websites and desktop applications that are fast, modern, and tailored to your needs.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Hire Me</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-card">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <pre><code><span class="c-purple">const</span> <span class="c-blue">developer</span> = {
+  name: <span class="c-green">"Shahidan"</span>,
+  skills: [<span class="c-green">"Electron"</span>, <span class="c-green">"Node.js"</span>,
+           <span class="c-green">"Web Dev"</span>],
+  available: <span class="c-orange">true</span>
+};</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <h2 class="section-title">About <span>Me</span></h2>
+      <div class="about-grid">
+        <div class="about-avatar">
+          <div class="avatar-ring">
+            <div class="avatar-inner"><i class="fas fa-user-tie"></i></div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>I'm a passionate developer specializing in building <strong>custom websites</strong> and <strong>desktop applications</strong>. I turn ideas into real, working products using modern technologies.</p>
+          <p>Whether you need a sleek landing page, a full web app, or a cross-platform desktop tool — I've got you covered.</p>
+          <div class="about-stats">
+            <div class="stat"><span class="stat-num">10+</span><span>Projects Done</span></div>
+            <div class="stat"><span class="stat-num">100%</span><span>Client Satisfaction</span></div>
+            <div class="stat"><span class="stat-num">2+</span><span>Years Experience</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services section" id="services">
+    <div class="container">
+      <h2 class="section-title">My <span>Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <h3>Custom Website</h3>
+          <p>Responsive, modern websites built from scratch — landing pages, portfolios, business sites, and full web apps.</p>
+          <ul>
+            <li>HTML / CSS / JavaScript</li>
+            <li>React / Node.js</li>
+            <li>REST APIs & Databases</li>
+          </ul>
+        </div>
+        <div class="service-card featured">
+          <div class="badge">Popular</div>
+          <div class="service-icon"><i class="fas fa-desktop"></i></div>
+          <h3>Desktop Application</h3>
+          <p>Cross-platform desktop apps for Windows, macOS, and Linux using Electron and Node.js.</p>
+          <ul>
+            <li>Electron.js</li>
+            <li>Node.js Backend</li>
+            <li>Custom UI / UX</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-plug"></i></div>
+          <h3>API & Backend</h3>
+          <p>Robust backend systems, REST APIs, and database integrations to power your applications.</p>
+          <ul>
+            <li>Node.js / Express</li>
+            <li>MongoDB / MySQL</li>
+            <li>Authentication & Security</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Tech <span>Stack</span></h2>
+      <div class="skills-grid">
+        <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+        <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+        <div class="skill-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+        <div class="skill-item"><i class="fab fa-react"></i><span>React</span></div>
+        <div class="skill-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+        <div class="skill-item"><i class="fas fa-desktop"></i><span>Electron</span></div>
+        <div class="skill-item"><i class="fas fa-database"></i><span>MongoDB</span></div>
+        <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <h2 class="section-title">My <span>Projects</span></h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-globe"></i></div>
+          <h3>Business Website</h3>
+          <p>A fully responsive business landing page with animations, contact form, and CMS integration.</p>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-desktop"></i></div>
+          <h3>Inventory Desktop App</h3>
+          <p>A cross-platform inventory management system built with Electron and SQLite for local data storage.</p>
+          <div class="project-tags">
+            <span>Electron</span><span>Node.js</span><span>SQLite</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h3>E-Commerce Web App</h3>
+          <p>Full-stack e-commerce platform with product management, cart, and payment integration.</p>
+          <div class="project-tags">
+            <span>React</span><span>Node.js</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>Dashboard App</h3>
+          <p>Real-time analytics dashboard desktop app with charts, reports, and data export features.</p>
+          <div class="project-tags">
+            <span>Electron</span><span>Chart.js</span><span>Node.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Have a project in mind? Let's build something great together. Reach out and I'll get back to you as soon as possible.</p>
+          <div class="contact-items">
+            <div class="contact-item"><i class="fas fa-envelope"></i><span>shahidan@email.com</span></div>
+            <div class="contact-item"><i class="fab fa-github"></i><span>github.com/shahidan</span></div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Malaysia</span></div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="text" placeholder="Subject" />
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Shahidan. Built with <i class="fas fa-heart"></i> using HTML, CSS & JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
