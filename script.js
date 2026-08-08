@@ -68,7 +68,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
 // Modal
 let currentSlide = 0;
-const totalSlides = 7;
+const totalSlides = 8;
 
 function openModal(type) {
   currentSlide = 0;
