@@ -162,12 +162,13 @@
         </div>
 
         <div class="project-card">
-          <div class="project-img"><i class="fas fa-utensils"></i></div>
+          <img src="images/meal-1.png" alt="Meal Planner" class="project-img-real" />
           <h3>Meal Planner</h3>
-          <p>Hospital meal planning desktop app with patient order management, beverage tracking, PDF summary generation, and multi-level ward support.</p>
+          <p>Hospital meal planning desktop app with role-based login, multi-ward support (Level 3, Level 4, Maternity), dietary management, and PDF export.</p>
           <div class="project-tags">
-            <span>Electron</span><span>Node.js</span><span>SQLite</span>
+            <span>Electron</span><span>Node.js</span><span>MSSQL</span>
           </div>
+          <button class="btn-view" onclick="openModal('meal')">View Screenshots <i class="fas fa-images"></i></button>
         </div>
 
         <div class="project-card">
@@ -250,6 +251,56 @@
   <footer>
     <p>© 2025 Shahidan. Built with <i class="fas fa-heart"></i> using HTML, CSS & JS.</p>
   </footer>
+
+  <!-- MEAL PLANNER MODAL -->
+  <div class="modal-overlay" id="mealModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <h2>Meal Planner <span>— Hospital Meal Management System</span></h2>
+      <p class="modal-desc">A full-featured desktop application built for hospital use, managing meal orders across multiple wards with role-based access, dietary tracking, and PDF report generation.</p>
+
+      <div class="modal-slides">
+        <div class="slide active">
+          <img src="images/meal-1.png" alt="Login Screen" />
+          <p><strong>Login Screen</strong> — Secure user authentication with role-based access control. Supports 5 user roles: Level 3, Level 4, Maternity, Dietitian, and Admin.</p>
+        </div>
+        <div class="slide">
+          <img src="images/meal-2.png" alt="Dashboard" />
+          <p><strong>Dashboard</strong> — Main overview screen showing meal order summary and quick navigation to different hospital ward levels.</p>
+        </div>
+        <div class="slide">
+          <img src="images/meal-3.png" alt="Order Management" />
+          <p><strong>Order Management</strong> — Create, view, edit, and delete patient meal orders. Supports filtering by ward, date, and dietary type.</p>
+        </div>
+        <div class="slide">
+          <img src="images/meal-4.png" alt="Dietary Management" />
+          <p><strong>Dietary Management</strong> — Manage multiple diet types, beverage associations, and special dietary requirements per patient.</p>
+        </div>
+        <div class="slide">
+          <img src="images/meal-5.png" alt="Multi-Ward Support" />
+          <p><strong>Multi-Ward Support</strong> — Tailored meal options for Level 3, Level 4, and Maternity wards, each with their own menu configurations.</p>
+        </div>
+        <div class="slide">
+          <img src="images/meal-6.png" alt="PDF Export" />
+          <p><strong>PDF Export</strong> — Generate professional PDF meal plan reports for each ward, ready for printing or sharing with kitchen staff.</p>
+        </div>
+        <div class="slide">
+          <img src="images/meal-7.png" alt="Settings" />
+          <p><strong>Settings & Admin</strong> — Admin panel for managing users, menu items, beverages, and system configurations across all hospital levels.</p>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+        <span id="slideCount">1 / 7</span>
+        <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-tags">
+        <span>Electron.js</span><span>Node.js</span><span>MSSQL</span><span>PDFKit</span><span>HTML/CSS/JS</span>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -65,3 +65,29 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     this.reset();
   }, 3000);
 });
+
+// Modal
+let currentSlide = 0;
+const totalSlides = 7;
+
+function openModal(type) {
+  currentSlide = 0;
+  updateSlide();
+  document.getElementById('mealModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('mealModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateSlide() {
+  document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+  document.getElementById('slideCount').textContent = `${currentSlide + 1} / ${totalSlides}`;
+}
+function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlide(); }
+function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateSlide(); }
+
+document.getElementById('mealModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
