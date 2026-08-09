@@ -55,20 +55,40 @@ document.head.appendChild(style);
 document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
   const btn = this.querySelector("button");
-  btn.textContent = "Message Sent! ✓";
-  btn.style.background = "#16a34a";
-  btn.style.borderColor = "#16a34a";
-  setTimeout(() => {
-    btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-    btn.style.background = "";
-    btn.style.borderColor = "";
+  const [name, email, subject, message] = this.querySelectorAll('input, textarea');
+  btn.textContent = "Sending...";
+  btn.disabled = true;
+
+  emailjs.send('service_pw8je4i', 'template_c4u5jv3', {
+    from_name: name.value,
+    from_email: email.value,
+    subject: subject.value,
+    message: message.value
+  }).then(() => {
+    btn.textContent = "Message Sent! ✓";
+    btn.style.background = "#16a34a";
+    btn.style.borderColor = "#16a34a";
     this.reset();
-  }, 3000);
+    setTimeout(() => {
+      btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+      btn.style.background = "";
+      btn.style.borderColor = "";
+      btn.disabled = false;
+    }, 3000);
+  }).catch(() => {
+    btn.textContent = "Failed. Try again.";
+    btn.style.background = "#dc2626";
+    setTimeout(() => {
+      btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+      btn.style.background = "";
+      btn.disabled = false;
+    }, 3000);
+  });
 });
 
 // Modal
 let currentSlide = 0;
-const totalSlides = 8;
+const totalSlides = 7;
 
 function openModal(type) {
   currentSlide = 0;
@@ -81,7 +101,7 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 function updateSlide() {
-  document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+  document.querySelectorAll('#mealModal .slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
   document.getElementById('slideCount').textContent = `${currentSlide + 1} / ${totalSlides}`;
 }
 function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlide(); }
@@ -165,4 +185,79 @@ function prevDisplaySlide() { currentDisplaySlide = (currentDisplaySlide - 1 + t
 
 document.getElementById('displayModal').addEventListener('click', function(e) {
   if (e.target === this) closeDisplayModal();
+});
+
+// Ticketing Modal
+let currentTicketingSlide = 0;
+const totalTicketingSlides = 6;
+
+function openTicketingModal() {
+  currentTicketingSlide = 0;
+  updateTicketingSlide();
+  document.getElementById('ticketingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeTicketingModal() {
+  document.getElementById('ticketingModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateTicketingSlide() {
+  document.querySelectorAll('#ticketingSlides .slide').forEach((s, i) => s.classList.toggle('active', i === currentTicketingSlide));
+  document.getElementById('ticketingSlideCount').textContent = `${currentTicketingSlide + 1} / ${totalTicketingSlides}`;
+}
+function nextTicketingSlide() { currentTicketingSlide = (currentTicketingSlide + 1) % totalTicketingSlides; updateTicketingSlide(); }
+function prevTicketingSlide() { currentTicketingSlide = (currentTicketingSlide - 1 + totalTicketingSlides) % totalTicketingSlides; updateTicketingSlide(); }
+
+document.getElementById('ticketingModal').addEventListener('click', function(e) {
+  if (e.target === this) closeTicketingModal();
+});
+
+// OT Management Modal
+let currentOTManagementSlide = 0;
+const totalOTManagementSlides = 1;
+
+function openOTManagementModal() {
+  currentOTManagementSlide = 0;
+  updateOTManagementSlide();
+  document.getElementById('otManagementModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOTManagementModal() {
+  document.getElementById('otManagementModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateOTManagementSlide() {
+  document.querySelectorAll('#otManagementSlides .slide').forEach((s, i) => s.classList.toggle('active', i === currentOTManagementSlide));
+  document.getElementById('otManagementSlideCount').textContent = `${currentOTManagementSlide + 1} / ${totalOTManagementSlides}`;
+}
+function nextOTManagementSlide() { currentOTManagementSlide = (currentOTManagementSlide + 1) % totalOTManagementSlides; updateOTManagementSlide(); }
+function prevOTManagementSlide() { currentOTManagementSlide = (currentOTManagementSlide - 1 + totalOTManagementSlides) % totalOTManagementSlides; updateOTManagementSlide(); }
+
+document.getElementById('otManagementModal').addEventListener('click', function(e) {
+  if (e.target === this) closeOTManagementModal();
+});
+
+// OT Display Modal
+let currentOTDisplaySlide = 0;
+const totalOTDisplaySlides = 1;
+
+function openOTDisplayModal() {
+  currentOTDisplaySlide = 0;
+  updateOTDisplaySlide();
+  document.getElementById('otDisplayModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOTDisplayModal() {
+  document.getElementById('otDisplayModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateOTDisplaySlide() {
+  document.querySelectorAll('#otDisplaySlides .slide').forEach((s, i) => s.classList.toggle('active', i === currentOTDisplaySlide));
+  document.getElementById('otDisplaySlideCount').textContent = `${currentOTDisplaySlide + 1} / ${totalOTDisplaySlides}`;
+}
+function nextOTDisplaySlide() { currentOTDisplaySlide = (currentOTDisplaySlide + 1) % totalOTDisplaySlides; updateOTDisplaySlide(); }
+function prevOTDisplaySlide() { currentOTDisplaySlide = (currentOTDisplaySlide - 1 + totalOTDisplaySlides) % totalOTDisplaySlides; updateOTDisplaySlide(); }
+
+document.getElementById('otDisplayModal').addEventListener('click', function(e) {
+  if (e.target === this) closeOTDisplayModal();
 });

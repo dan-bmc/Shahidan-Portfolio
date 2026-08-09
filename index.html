@@ -165,23 +165,24 @@
         </div>
 
         <div class="project-card">
-          <img src="images/ot-display.png" alt="OT Display" class="project-img-real" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div class="project-img" style="display:none"><i class="fas fa-tv"></i></div>
+          <img src="images/ot-display-1.png" alt="OT Display" class="project-img-real" />
           <h3>OT Display</h3>
-          <p>Operating Theatre display board showing real-time patient and surgery status for hospital OT departments.</p>
+          <p>Operating Theatre display board showing real-time patient and surgery status. Directly linked to the <strong>OT Management</strong> app — when a case is updated there, it reflects instantly on this display.</p>
           <div class="project-tags">
             <span>Electron</span><span>Node.js</span><span>MySQL</span>
           </div>
+          <button class="btn-view" onclick="openOTDisplayModal()">View Screenshots <i class="fas fa-images"></i></button>
         </div>
 
         <div class="project-card">
           <img src="images/ot-management.png" alt="OT Management" class="project-img-real" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="project-img" style="display:none"><i class="fas fa-hospital"></i></div>
           <h3>OT Management</h3>
-          <p>Full Operating Theatre management system for scheduling surgeries, managing patient queues, and tracking OT room availability.</p>
+          <p>Full Operating Theatre management system for scheduling surgeries, managing patient queues, and tracking OT room availability. Directly linked to the <strong>OT Display</strong> board — any case update here is instantly reflected on the display in real time.</p>
           <div class="project-tags">
             <span>Electron</span><span>Node.js</span><span>MySQL</span>
           </div>
+          <button class="btn-view" onclick="openOTManagementModal()">View Screenshots <i class="fas fa-images"></i></button>
         </div>
 
         <div class="project-card">
@@ -204,13 +205,14 @@
         </div>
 
         <div class="project-card">
-          <img src="images/ticketing.png" alt="IT Help Desk" class="project-img-real" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <img src="images/ticketing-1.png" alt="IT Help Desk" class="project-img-real" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="project-img" style="display:none"><i class="fas fa-ticket-alt"></i></div>
           <h3>IT Help Desk Ticketing</h3>
           <p>IT support ticketing system with SQL backend, WhatsApp on-call notifications, session management, and auto-updater. Distributed as a Windows installer.</p>
           <div class="project-tags">
             <span>Electron</span><span>Node.js</span><span>SQL Server</span>
           </div>
+          <button class="btn-view" onclick="openTicketingModal()">View Screenshots <i class="fas fa-images"></i></button>
         </div>
 
       </div>
@@ -246,6 +248,98 @@
     <p>© 2025 Shahidan. Built with <i class="fas fa-heart"></i> using HTML, CSS & JS.</p>
   </footer>
 
+  <!-- TICKETING MODAL -->
+  <div class="modal-overlay" id="ticketingModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeTicketingModal()"><i class="fas fa-times"></i></button>
+      <h2>IT Help Desk Ticketing <span>— IT Support Ticketing System</span></h2>
+      <p class="modal-desc">IT support ticketing system with SQL backend, WhatsApp on-call notifications, session management, and auto-updater. Distributed as a Windows installer.</p>
+
+      <div class="modal-slides" id="ticketingSlides">
+        <div class="slide active">
+          <img src="images/ticketing-1.png" alt="Ticketing 1" />
+        </div>
+        <div class="slide">
+          <img src="images/ticketing-2.png" alt="Ticketing 2" />
+        </div>
+        <div class="slide">
+          <img src="images/ticketing-3.png" alt="Ticketing 3" />
+        </div>
+        <div class="slide">
+          <img src="images/ticketing-4.png" alt="Ticketing 4" />
+        </div>
+        <div class="slide">
+          <img src="images/ticketing-5.png" alt="Ticketing 5" />
+        </div>
+        <div class="slide">
+          <img src="images/ticketing-6.png" alt="Ticketing 6" />
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button onclick="prevTicketingSlide()"><i class="fas fa-chevron-left"></i></button>
+        <span id="ticketingSlideCount">1 / 6</span>
+        <button onclick="nextTicketingSlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-tags">
+        <span>Electron.js</span><span>Node.js</span><span>SQL Server</span><span>WhatsApp API</span><span>HTML/CSS/JS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OT MANAGEMENT MODAL -->
+  <div class="modal-overlay" id="otManagementModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeOTManagementModal()"><i class="fas fa-times"></i></button>
+      <h2>OT Management <span>— Operating Theatre Management System</span></h2>
+      <p class="modal-desc">Full Operating Theatre management system for scheduling surgeries, managing patient queues, and tracking OT room availability. Once a case is updated, it is instantly pushed to the <strong>OT Display</strong> board app for all OT staff to see in real time.</p>
+
+      <div class="modal-slides" id="otManagementSlides">
+        <div class="slide active">
+          <img src="images/ot-management.png" alt="OT Management" />
+          <p><strong>OT Management</strong> — Main dashboard for managing Operating Theatre schedules, patient queues, and room availability.</p>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button onclick="prevOTManagementSlide()"><i class="fas fa-chevron-left"></i></button>
+        <span id="otManagementSlideCount">1 / 1</span>
+        <button onclick="nextOTManagementSlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-tags">
+        <span>Electron.js</span><span>Node.js</span><span>MySQL</span><span>HTML/CSS/JS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OT DISPLAY MODAL -->
+  <div class="modal-overlay" id="otDisplayModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeOTDisplayModal()"><i class="fas fa-times"></i></button>
+      <h2>OT Display <span>— Operating Theatre Display Board</span></h2>
+      <p class="modal-desc">A real-time display board for the Operating Theatre, directly linked to the OT Management app. Any case update made in OT Management is instantly reflected on this screen for all OT staff to see.</p>
+
+      <div class="modal-slides" id="otDisplaySlides">
+        <div class="slide active">
+          <img src="images/ot-display-1.png" alt="OT Display Board" />
+          <p><strong>OT Display Board</strong> — Live view of all active Operating Theatre cases, showing patient name, surgery type, OT room, and current status — updated in real time from the OT Management system.</p>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button onclick="prevOTDisplaySlide()"><i class="fas fa-chevron-left"></i></button>
+        <span id="otDisplaySlideCount">1 / 1</span>
+        <button onclick="nextOTDisplaySlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-tags">
+        <span>Electron.js</span><span>Node.js</span><span>MySQL</span><span>HTML/CSS/JS</span>
+      </div>
+    </div>
+  </div>
+
   <!-- MEAL PLANNER MODAL -->
   <div class="modal-overlay" id="mealModal">
     <div class="modal">
@@ -255,10 +349,6 @@
 
       <div class="modal-slides">
         <div class="slide active">
-          <img src="images/meal-login.png" alt="Login Screen" />
-          <p><strong>Login Screen</strong> — Secure user authentication with role-based access control. Supports 5 user roles: Level 3, Level 4, Maternity, Dietitian, and Admin.</p>
-        </div>
-        <div class="slide">
           <img src="images/meal-1.png" alt="Main Screen" />
           <p><strong>Main Screen</strong> — Overview of the meal management system showing patient orders, ward summary, and quick access to all features.</p>
         </div>
@@ -290,7 +380,7 @@
 
       <div class="modal-nav">
         <button onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
-        <span id="slideCount">1 / 8</span>
+        <span id="slideCount">1 / 7</span>
         <button onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
       </div>
 
@@ -418,6 +508,8 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('_X515beSbNUJ-eGll');</script>
   <script src="script.js"></script>
 </body>
 </html>
