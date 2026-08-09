@@ -1,3 +1,26 @@
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+const cursorRing = document.querySelector('.cursor-ring');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  cursorRing.style.left = e.clientX + 'px';
+  cursorRing.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%, -50%) scale(2)'; cursorRing.style.transform = 'translate(-50%, -50%) scale(1.4)'; });
+  el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%, -50%) scale(1)'; cursorRing.style.transform = 'translate(-50%, -50%) scale(1)'; });
+});
+
+// Scroll progress bar
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  scrollProgress.style.width = (scrollTop / docHeight * 100) + '%';
+  document.querySelector('nav').classList.toggle('scrolled', scrollTop > 50);
+});
+
 // Typewriter
 const phrases = ["Web Developer.", "Desktop App Developer.", "Electron.js Expert.", "Node.js Developer."];
 let pi = 0, ci = 0, deleting = false;
@@ -24,12 +47,28 @@ document.querySelectorAll(".nav-links a").forEach(a => {
 
 // Active nav highlight on scroll
 const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+const backToTop = document.getElementById('backToTop');
+
 window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY + 100;
+  const scrollY = window.scrollY + 120;
+
+  // Active nav
   sections.forEach(s => {
     const link = document.querySelector(`.nav-links a[href="#${s.id}"]`);
-    if (link) link.style.color = scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight ? "var(--accent2)" : "";
+    if (link) {
+      if (scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    }
   });
+
+  // Nav shadow
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+
+  // Back to top
+  backToTop.classList.toggle('visible', window.scrollY > 400);
 });
 
 // Scroll reveal
@@ -50,6 +89,23 @@ document.addEventListener("animationend", () => {}, false);
 const style = document.createElement("style");
 style.textContent = ".visible { opacity: 1 !important; transform: translateY(0) !important; }";
 document.head.appendChild(style);
+
+// Card tilt effect
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `translateY(-6px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+  card.addEventListener('mouseenter', () => {
+    card.style.transition = 'transform 0.1s ease';
+  });
+});
 
 // Contact form
 document.getElementById("contactForm").addEventListener("submit", function(e) {
