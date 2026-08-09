@@ -147,7 +147,7 @@
         <div class="project-card">
           <img src="images/display-1.png" alt="Display Order" class="project-img-real" />
           <h3>Display Order</h3>
-          <p>Real-time order display board for kitchen or counter use, showing live order status updates across the system.</p>
+          <p>Real-time order display board for kitchen use, directly linked to the Meal Planner app. When Meal Planner sends a patient meal order, it instantly appears on this kitchen display board for staff to process.</p>
           <div class="project-tags">
             <span>Electron</span><span>Node.js</span><span>SQLite</span>
           </div>
@@ -166,7 +166,7 @@
         <div class="project-card">
           <img src="images/meal-login.png" alt="Meal Planner" class="project-img-real" />
           <h3>Meal Planner</h3>
-          <p>Hospital meal planning desktop app with role-based login, multi-ward support (Level 3, Level 4, Maternity), dietary management, and PDF export.</p>
+          <p>Hospital meal planning desktop app with role-based login, multi-ward support (Level 3, Level 4, Maternity), dietary management, and PDF export. Orders submitted here are instantly sent to the <strong>Display Order</strong> kitchen board in real time.</p>
           <div class="project-tags">
             <span>Electron</span><span>Node.js</span><span>MSSQL</span>
           </div>
@@ -260,7 +260,7 @@
     <div class="modal">
       <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
       <h2>Meal Planner <span>— Hospital Meal Management System</span></h2>
-      <p class="modal-desc">A full-featured desktop application built for hospital use, managing meal orders across multiple wards with role-based access, dietary tracking, and PDF report generation.</p>
+      <p class="modal-desc">A full-featured desktop application built for hospital use, managing meal orders across multiple wards with role-based access, dietary tracking, and PDF report generation. Once an order is submitted, it is instantly pushed to the <strong>Display Order</strong> kitchen board app for kitchen staff to process in real time.</p>
 
       <div class="modal-slides">
         <div class="slide active">
@@ -314,20 +314,20 @@
     <div class="modal">
       <button class="modal-close" onclick="closeDisplayModal()"><i class="fas fa-times"></i></button>
       <h2>Display Order <span>— Real-Time Order Display Board</span></h2>
-      <p class="modal-desc">A desktop display board application that shows live order status updates for kitchen or counter staff, keeping everyone in sync in real time.</p>
+      <p class="modal-desc">A real-time kitchen display board directly integrated with the Meal Planner app. When a meal order is submitted from the Meal Planner, it instantly appears on this display for kitchen staff to view and process — no manual communication needed.</p>
 
       <div class="modal-slides" id="displaySlides">
         <div class="slide active">
           <img src="images/display-1.png" alt="Display Board" />
-          <p><strong>Order Display Board</strong> — Main screen showing all active orders in real time, designed to be visible on a large screen for kitchen or counter use.</p>
+          <p><strong>Order Display Board</strong> — Main screen showing all active meal orders sent from the Meal Planner app in real time, designed to be visible on a large kitchen display screen.</p>
         </div>
         <div class="slide">
           <img src="images/display-2.png" alt="Order Status" />
-          <p><strong>Order Status View</strong> — Live status updates for each order, showing pending, in-progress, and completed states across the system.</p>
+          <p><strong>Order Status View</strong> — Live status updates for each order received from Meal Planner, showing pending, in-progress, and completed states so kitchen staff always know what to prepare.</p>
         </div>
         <div class="slide">
           <img src="images/display-3.png" alt="Order Details" />
-          <p><strong>Order Details</strong> — Detailed breakdown of individual orders including items, quantities, and timestamps for accurate fulfilment.</p>
+          <p><strong>Order Details</strong> — Detailed breakdown of each meal order including patient info, items, quantities, and timestamps — all pushed directly from the Meal Planner system.</p>
         </div>
       </div>
 
