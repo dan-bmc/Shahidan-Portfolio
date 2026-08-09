@@ -135,21 +135,23 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div class="project-img"><i class="fas fa-boxes"></i></div>
+          <img src="images/asset-login.png" alt="Asset Management" class="project-img-real" />
           <h3>Asset Management</h3>
           <p>Desktop app to track and manage company assets with department categorization, stock adjustments, movement history, and document uploads.</p>
           <div class="project-tags">
             <span>Electron</span><span>Node.js</span><span>SQLite</span>
           </div>
+          <button class="btn-view" onclick="openAssetModal()">View Screenshots <i class="fas fa-images"></i></button>
         </div>
 
         <div class="project-card">
-          <div class="project-img"><i class="fas fa-receipt"></i></div>
+          <img src="images/display-1.png" alt="Display Order" class="project-img-real" />
           <h3>Display Order</h3>
           <p>Real-time order display board for kitchen or counter use, showing live order status updates across the system.</p>
           <div class="project-tags">
             <span>Electron</span><span>Node.js</span><span>SQLite</span>
           </div>
+          <button class="btn-view" onclick="openDisplayModal()">View Screenshots <i class="fas fa-images"></i></button>
         </div>
 
         <div class="project-card">
@@ -201,12 +203,13 @@
         </div>
 
         <div class="project-card">
-          <div class="project-img"><i class="fas fa-sim-card"></i></div>
+          <img src="images/simcard-1.png" alt="SIM Card Tracker" class="project-img-real" />
           <h3>SIM Card Tracker</h3>
-          <p>Desktop app to manage and track company SIM cards, assignments, and usage with a local database and clean UI.</p>
+          <p>Desktop app to manage and track company SIM cards, assignments, and usage. Connects to MSSQL database and automatically sends WhatsApp group reminders for SIM card credit expiry via WhatsApp API.</p>
           <div class="project-tags">
-            <span>Electron</span><span>Node.js</span><span>SQLite</span>
+            <span>Electron</span><span>Node.js</span><span>MSSQL</span><span>WhatsApp API</span>
           </div>
+          <button class="btn-view" onclick="openSimModal()">View Screenshots <i class="fas fa-images"></i></button>
         </div>
 
         <div class="project-card">
@@ -231,7 +234,7 @@
         <div class="contact-info">
           <p>Have a project in mind? Let's build something great together. Reach out and I'll get back to you as soon as possible.</p>
           <div class="contact-items">
-            <div class="contact-item"><i class="fas fa-envelope"></i><span>shahidan@email.com</span></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i><span>97shahidan@gmail.com</span></div>
             <div class="contact-item"><i class="fab fa-github"></i><span>github.com/shahidan</span></div>
             <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Malaysia</span></div>
           </div>
@@ -302,6 +305,124 @@
 
       <div class="modal-tags">
         <span>Electron.js</span><span>Node.js</span><span>MSSQL</span><span>PDFKit</span><span>HTML/CSS/JS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISPLAY ORDER MODAL -->
+  <div class="modal-overlay" id="displayModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeDisplayModal()"><i class="fas fa-times"></i></button>
+      <h2>Display Order <span>— Real-Time Order Display Board</span></h2>
+      <p class="modal-desc">A desktop display board application that shows live order status updates for kitchen or counter staff, keeping everyone in sync in real time.</p>
+
+      <div class="modal-slides" id="displaySlides">
+        <div class="slide active">
+          <img src="images/display-1.png" alt="Display Board" />
+          <p><strong>Order Display Board</strong> — Main screen showing all active orders in real time, designed to be visible on a large screen for kitchen or counter use.</p>
+        </div>
+        <div class="slide">
+          <img src="images/display-2.png" alt="Order Status" />
+          <p><strong>Order Status View</strong> — Live status updates for each order, showing pending, in-progress, and completed states across the system.</p>
+        </div>
+        <div class="slide">
+          <img src="images/display-3.png" alt="Order Details" />
+          <p><strong>Order Details</strong> — Detailed breakdown of individual orders including items, quantities, and timestamps for accurate fulfilment.</p>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button onclick="prevDisplaySlide()"><i class="fas fa-chevron-left"></i></button>
+        <span id="displaySlideCount">1 / 3</span>
+        <button onclick="nextDisplaySlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-tags">
+        <span>Electron.js</span><span>Node.js</span><span>SQLite</span><span>HTML/CSS/JS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASSET MANAGEMENT MODAL -->
+  <div class="modal-overlay" id="assetModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeAssetModal()"><i class="fas fa-times"></i></button>
+      <h2>Asset Management <span>— Company Asset Tracking System</span></h2>
+      <p class="modal-desc">A desktop application to track and manage company assets across departments, with full stock control, movement history, and document upload support.</p>
+
+      <div class="modal-slides" id="assetSlides">
+        <div class="slide active">
+          <img src="images/asset-login.png" alt="Login" />
+          <p><strong>Login Screen</strong> — Secure login with user authentication to control access to the asset management system.</p>
+        </div>
+        <div class="slide">
+          <img src="images/asset-1.png" alt="Dashboard" />
+          <p><strong>Dashboard</strong> — Main overview showing total assets, department breakdown, and quick access to all management features.</p>
+        </div>
+        <div class="slide">
+          <img src="images/asset-2.png" alt="Asset List" />
+          <p><strong>Asset List</strong> — Full list of registered company assets with department categorization, status, and arrived date tracking.</p>
+        </div>
+        <div class="slide">
+          <img src="images/asset-3.png" alt="Stock Adjustment" />
+          <p><strong>Stock Adjustment</strong> — Manage stock levels with adjustment entries, tracking additions and removals per asset category.</p>
+        </div>
+        <div class="slide">
+          <img src="images/asset-4.png" alt="Movement History" />
+          <p><strong>Movement History</strong> — Full log of asset movements between departments, including quantity changes and timestamps.</p>
+        </div>
+        <div class="slide">
+          <img src="images/asset-5.png" alt="Document Upload" />
+          <p><strong>Document Upload</strong> — Attach and manage supporting documents for each asset, keeping records organized and accessible.</p>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button onclick="prevAssetSlide()"><i class="fas fa-chevron-left"></i></button>
+        <span id="assetSlideCount">1 / 6</span>
+        <button onclick="nextAssetSlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-tags">
+        <span>Electron.js</span><span>Node.js</span><span>SQLite</span><span>HTML/CSS/JS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMCARD TRACKER MODAL -->
+  <div class="modal-overlay" id="simModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeSimModal()"><i class="fas fa-times"></i></button>
+      <h2>SIM Card Tracker <span>— Company SIM Management System</span></h2>
+      <p class="modal-desc">A desktop application to manage and monitor company SIM cards, track assignments to staff, and maintain usage records on MSSQL database. Features automatic WhatsApp group notifications to remind staff when SIM card credits are about to expire.</p>
+
+      <div class="modal-slides" id="simSlides">
+        <div class="slide active">
+          <img src="images/simcard-1.png" alt="SIM Card Tracker" />
+          <p><strong>Main Dashboard</strong> — Overview of all registered SIM cards with their current assignment status, credit balance, and expiry dates.</p>
+        </div>
+        <div class="slide">
+          <img src="images/simcard-2.png" alt="SIM Card List" />
+          <p><strong>SIM Card List</strong> — Full list of company SIM cards stored in MSSQL database with filtering and search for quick lookup.</p>
+        </div>
+        <div class="slide">
+          <img src="images/simcard-3.png" alt="Assignment Management" />
+          <p><strong>Assignment Management</strong> — Assign SIM cards to staff members, track who holds which card, manage returns, and monitor credit expiry dates.</p>
+        </div>
+        <div class="slide">
+          <img src="images/simcard-4.png" alt="Records & History" />
+          <p><strong>WhatsApp Expiry Reminder</strong> — Automatically sends renewal reminders to a WhatsApp group via WhatsApp API when a SIM card credit is nearing its expiry date.</p>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button onclick="prevSimSlide()"><i class="fas fa-chevron-left"></i></button>
+        <span id="simSlideCount">1 / 4</span>
+        <button onclick="nextSimSlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="modal-tags">
+        <span>Electron.js</span><span>Node.js</span><span>MSSQL</span><span>WhatsApp API</span><span>HTML/CSS/JS</span>
       </div>
     </div>
   </div>

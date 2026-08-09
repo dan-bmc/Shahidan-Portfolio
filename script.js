@@ -91,3 +91,78 @@ document.getElementById('mealModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// SIM Card Modal
+let currentSimSlide = 0;
+const totalSimSlides = 4;
+
+function openSimModal() {
+  currentSimSlide = 0;
+  updateSimSlide();
+  document.getElementById('simModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSimModal() {
+  document.getElementById('simModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateSimSlide() {
+  document.querySelectorAll('#simSlides .slide').forEach((s, i) => s.classList.toggle('active', i === currentSimSlide));
+  document.getElementById('simSlideCount').textContent = `${currentSimSlide + 1} / ${totalSimSlides}`;
+}
+function nextSimSlide() { currentSimSlide = (currentSimSlide + 1) % totalSimSlides; updateSimSlide(); }
+function prevSimSlide() { currentSimSlide = (currentSimSlide - 1 + totalSimSlides) % totalSimSlides; updateSimSlide(); }
+
+document.getElementById('simModal').addEventListener('click', function(e) {
+  if (e.target === this) closeSimModal();
+});
+
+// Asset Management Modal
+let currentAssetSlide = 0;
+const totalAssetSlides = 6;
+
+function openAssetModal() {
+  currentAssetSlide = 0;
+  updateAssetSlide();
+  document.getElementById('assetModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAssetModal() {
+  document.getElementById('assetModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateAssetSlide() {
+  document.querySelectorAll('#assetSlides .slide').forEach((s, i) => s.classList.toggle('active', i === currentAssetSlide));
+  document.getElementById('assetSlideCount').textContent = `${currentAssetSlide + 1} / ${totalAssetSlides}`;
+}
+function nextAssetSlide() { currentAssetSlide = (currentAssetSlide + 1) % totalAssetSlides; updateAssetSlide(); }
+function prevAssetSlide() { currentAssetSlide = (currentAssetSlide - 1 + totalAssetSlides) % totalAssetSlides; updateAssetSlide(); }
+
+document.getElementById('assetModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAssetModal();
+});
+
+// Display Order Modal
+let currentDisplaySlide = 0;
+const totalDisplaySlides = 3;
+
+function openDisplayModal() {
+  currentDisplaySlide = 0;
+  updateDisplaySlide();
+  document.getElementById('displayModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDisplayModal() {
+  document.getElementById('displayModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateDisplaySlide() {
+  document.querySelectorAll('#displaySlides .slide').forEach((s, i) => s.classList.toggle('active', i === currentDisplaySlide));
+  document.getElementById('displaySlideCount').textContent = `${currentDisplaySlide + 1} / ${totalDisplaySlides}`;
+}
+function nextDisplaySlide() { currentDisplaySlide = (currentDisplaySlide + 1) % totalDisplaySlides; updateDisplaySlide(); }
+function prevDisplaySlide() { currentDisplaySlide = (currentDisplaySlide - 1 + totalDisplaySlides) % totalDisplaySlides; updateDisplaySlide(); }
+
+document.getElementById('displayModal').addEventListener('click', function(e) {
+  if (e.target === this) closeDisplayModal();
+});
