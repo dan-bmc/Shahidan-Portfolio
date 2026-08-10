@@ -1,0 +1,20 @@
+{
+  "name": "shahidan-portfolio",
+  "version": "1.0.0",
+  "description": "Shahidan's Developer Portfolio - A modern portfolio showcasing web and desktop development projects",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "preview": "npx serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "electron",
+    "web-development"
+  ],
+  "author": "Shahidan",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
